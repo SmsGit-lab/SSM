@@ -1,0 +1,30 @@
+p{
+    color: rgb(233, 37, 37);
+    width: 500px;
+    border: 1px solid black;
+}
+html{
+    font-size: 10px;
+    font-style: 'Open Sans',sans-serif;
+    background-color: cadetblue;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+p,li{
+    font-size: 20px;
+    line-height: 2;
+    letter-spacing: 1px;/*字符间距*/
+}
+body{
+    width: 800px;
+    margin: 0 auto;
+    background-color: rosybrown;
+    padding: 0 20px 20px 20px;
+    border :5px solid black
+}
+img{
+    margin: 0 auto;
+    display: block;
+}

@@ -1,0 +1,62 @@
+body{
+   
+    background-image: url(file:///E:/myec/Project1/WebContent/WEB-INF/web/imgs/bt.jpg);
+    height: 100%;
+    width: 100%;
+}
+div{
+    
+    position: relative;
+    top: -790px;
+    right: -320px;
+    margin-top: 20px;
+    background-color: white;
+    width: 525px;
+    height: 400px;
+    border: 1px solid rgb(185, 184, 184);
+    text-align: center;
+    margin: auto;
+}
+input{
+    font-size: 20px;
+    height: 38px;
+    width: 300px;
+}
+#pu{
+    padding-left: 10px;
+    
+}
+#p1{
+    font-size: 20px;
+}
+#h2{
+    font-size: 25px;
+   
+}
+a{
+    text-decoration: none;
+}
+.img{
+    margin: 0px;
+    padding: 0%;
+}
+#pu2{
+    height: 44px;
+    width: 316px;
+    border: none;
+    font-size: 15px;
+    background-image: url(imgs/but.jpg);
+    font-size: 15px;
+color: white;
+size: 20px;
+background-color: rgb(105, 201, 105);
+}
+#t2>a:link{
+
+    color: black;
+}
+#t2{
+    text-align: right;
+    color: black;
+    text-decoration:none;
+}

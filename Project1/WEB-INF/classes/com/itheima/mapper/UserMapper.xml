@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN "
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.itheima.dao.UserDao">
+	<!-- 登录注册访问数据库 -->
+	<!-- login查询 -->
+	<resultMap type="com.itheima.pojo.User" id="resultMap">
+		<id property="id" column="id" />
+		<result property="userName" column="username" />
+		<result property="password" column="pwd" />
+	</resultMap>
+	<select id="login" resultMap="resultMap">
+		select * from user
+	</select>
+	<!-- register查询 -->
+	<select id="register" resultType="com.itheima.pojo.User">
+		select*from user where
+		username=#{username}
+	</select>
+	<!-- 添加用户 -->
+	<insert id="register2" parameterType="com.itheima.pojo.User">
+		insert into user
+		(username,email,pwd)
+		values(#{username},#{email},#{pwd})
+	</insert>
+
+	<!-- buy购买页面请求数据 -->
+	<select id="findHs" resultType="com.itheima.pojo.House">
+		select * from house
+		join image on house.houseId=image.id
+		join type on house.houseId=type.id
+		join state on house.houseId=state.id
+		join district on house.houseId=district.id
+		where 
+		name=#{name} 
+		and typename=#{typename}
+		and room=#{room}
+		and rend in (#rend,#rends)
+		and state=#{state}
+	</select>
+	<!-- house详情页面数据请求 -->
+		<select id="findHDetails" resultType="com.itheima.pojo.House">
+		select * from house
+		join image on house.houseId=image.id
+		join type on house.houseId=type.id
+		join state on house.houseId=state.id
+		join district on house.houseId=district.id
+		where 
+		houseId=#{houseId}
+	</select>
+</mapper>

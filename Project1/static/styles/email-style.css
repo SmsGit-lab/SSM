@@ -1,0 +1,41 @@
+body{
+    border: 1px solid black;
+    width: 900px;
+    margin: 50px auto;
+    padding: 10px 30px 10px 30px;
+    display: block;
+}
+.t1{
+    text-align: right;
+}
+p{
+    font-family: 黑体;
+}
+.name1{
+    text-decoration: underline;
+    color: red;
+    
+}
+#tab{
+    border-collapse: collapse;
+    empty-cells: show; /*显示空格*/
+    margin: auto;
+    width: 600px;
+    height: 200px;
+    border: 1px solid rgb(14, 13, 13);
+    background-color: rgb(162, 231, 222);
+}
+tr td{
+    cursor: progress;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    text-align: center;
+    border: 1px solid red;
+}
+tr th{
+    cursor: wait;
+    border-top: 3px blue double;
+    border-bottom: 1px blue solid;
+    border-left: 1px solid black;
+}

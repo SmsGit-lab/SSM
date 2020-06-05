@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN "
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.itheima.dao.IndexDao">
+	<!-- 根据客户编号获取客户信息 -->
+	<select id="holtH" 
+		resultType="com.itheima.pojo.House">
+				select * from house 
+ join image on  house.houseId=image.id 
+ join type on  house.houseId=type.id
+ join state on  house.houseId=state.id
+ join district on  house.houseId=district.id
+order by rend asc limit 3;
+		
+	</select>
+	<select id="cheapH" 
+		resultType="com.itheima.pojo.House">
+						select * from house 
+ join image on  house.houseId=image.id 
+ join type on  house.houseId=type.id
+ join state on  house.houseId=state.id
+ join district on  house.houseId=district.id
+order by rend desc limit 4;
+	</select>
+		<!-- buy购买页面请求数据 -->
+	<select id="findHs" resultType="com.itheima.pojo.House">
+		select * from house
+		join image on house.houseId=image.id
+		join type on house.houseId=type.id
+		join state on house.houseId=state.id
+		join district on house.houseId=district.id
+		where 
+		name=#{name} 
+		and typename=#{typename}
+		and room=#{room}
+		and rend in (#rend,#rends)
+		and state=#{state}
+	</select>
+	<!-- house详情页面数据请求 -->
+		<select id="findHDetails" resultType="com.itheima.pojo.House">
+		select * from house
+		join image on house.houseId=image.id
+		join type on house.houseId=type.id
+		join state on house.houseId=state.id
+		join district on house.houseId=district.id
+		where 
+		houseId=#{houseId}
+	</select>
+	
+	
+</mapper>
