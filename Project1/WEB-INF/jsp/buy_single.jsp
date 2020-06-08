@@ -196,28 +196,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	
 	<div class="buy-single">
-		<h3>住宅公寓</h3>
+		<h3>${Hcity}</h3>
 		<div class="box-sin">
+		
 			<div class="col-md-9 single-box">
+			<c:forEach items="${HcityList}" var="pro">
 				<div class="box-col">
 				     <div class=" col-sm-7 left-side ">
-						<a href="single"> <img class="img-responsive" src="${pageContext.request.contextPath }/static/images/sb.jpg" alt=""></a>
+						<a href="single?holt=${pro.houseid }"> <img class="img-responsive" src="${pageContext.request.contextPath }/static/images/${pro.image}" alt=""></a>
 					</div>				
 					<div class="  col-sm-5 middle-side">
 					     <h4>拥有：立即</h4>
-					     <p><span class="bath">卧室 </span>: <span class="two">${Hdetails.room}</span></p>
-					     <p>  <span class="bath1">客厅 </span>: <span class="two">${Hdetails.hall}</span></p>
-					     <p><span class="bath2">样式</span>: <span class="two">${Hdetails.typename}</span></p>
-					     <p><span class="bath3">地区</span>:<span class="two"> ${Hdetails.name}</span></p>
-						 <p><span class="bath4">状态</span> : <span class="two">${Hdetails.state}</span></p>
-						 <p><span class="bath5">价格</span>:<span class="two"> ${Hdetails.rend}</span></p>				 
+					     <p><span class="bath">卧室 </span>: <span class="two">${pro.room}</span></p>
+					     <p>  <span class="bath1">客厅 </span>: <span class="two">${pro.hall}</span></p>
+					     <p><span class="bath2">样式</span>: <span class="two">${pro.typename}</span></p>
+					     <p><span class="bath3">地区</span>:<span class="two"> ${pro.name}</span></p>
+						 <p><span class="bath4">状态</span> : <span class="two">${pro.state}</span></p>
+						 <p><span class="bath5">价格</span>:<span class="two"> ${pro.rend}</span></p>				 
 						<div class="   right-side">
-							 <a href="contact" class="hvr-sweep-to-right more" >Contact Builder</a>     
+							 <a href="contact?uid=${pro.uid}&&houseId=${pro.houseid}" class="hvr-sweep-to-right more" >联系房主</a>     
 						 </div>
 					 </div>
 				 <div class="clearfix"> </div>
 				</div>
+				</c:forEach>
 			</div>
+		
+
 		</div>
 		<div class="col-md-3 map-single-bottom">
 			<div class="map-single">
