@@ -20,13 +20,15 @@
 		<if test="room!=null and room!='' ">
 		and room=#{room}
 		</if>
-		<if test="rend!=null and rend!='' ">
-		and rend in (#rend,#rends)
-		</if>
-		<if test="state!=null and state!='' ">
-		and state=#{state}
-		</if>
 		</where>
+	</select>
+			<!-- 所有的请求数据 -->
+	<select id="findHAll" resultType="com.itheima.pojo.House">
+		select  house.houseId,uid,room,hall,description,rend,telephone,contactor,image,TypeName,Name,state from house
+		join image on house.houseId=image.houseId
+		join type on house.houseId=type.id
+		join state on house.houseId=state.id
+		join district on house.houseId=district.id
 	</select>
 	<!-- house详情页面数据请求 -->
 		<select id="findHDetails" resultType="com.itheima.pojo.House">

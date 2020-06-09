@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>Register</title>
+<title>Dealers</title>
 <link href="${pageContext.request.contextPath }/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="${pageContext.request.contextPath }/static/js/jquery.min.js"></script>
@@ -25,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%@ include file="header.jsp" %>
 <div class=" banner-buying">
 	<div class=" container">
-	<h3><span>Regis</span>ter</h3> 
+	<h3><span>Deal</span>ers</h3> 
 	<!---->
 	<div class="menu-right">
 		 <ul class="menu">
@@ -66,37 +67,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--//header-->
-<!--contact-->
-<div class="login-right">
-	<div class="container">
-	<h3>注册：${msg}</h3>
+<!--Dealers-->
+<div class="dealers">
+<div class="container">
+	<h3>${FIND_CITY}</h3>
+<h4>${FIND_Category}&nbsp;客厅：${FIND_Rooms }</h4><br/>
+
+<h5>&nbsp;&nbsp;&nbsp;&nbsp;为您查找到一下结果:</h5>
+	<div class="dealer-top">
 		
-		
-		<div class="login-top">
-				<ul class="login-icons">
-					<li><a href="#" ><i class="facebook"> </i><span>Facebook</span></a></li>
-					<li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
-					<li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
-					<li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
-					<div class="clearfix"> </div>
-				</ul>
-				<div class="form-info">
-					<form action="${pageContext.request.contextPath}/register" method="post">
-						<input type="text"   placeholder="用户名" required="" name="userName">
-						<input type="text"   placeholder="电子邮箱" required="" name="email">
-						<input type="password"  placeholder="密码 " required="" name="password">
-						
-						 <label class="hvr-sweep-to-right">
-				           	<input type="submit" value="注册">
-				           </label>
-					</form>
-					<p>已经有一个Real Home帐户? <a href="login">登录</a></p>
+			<div class="deal-top-top">
+			<c:if test="${empty FIND_LIST}">
+			<div class="col-md-12 top-deal-top" style="width: 1200px;height: 500px;">
+					<div class=" top-deal">
+								<ul class="slides">
+									<li data-thumb="images/ss.jpg"><img
+										src="${pageContext.request.contextPath }/static/imgs/notH.png" />
+									</li>
+								</ul>
+					</div>
 				</div>
 			
-	</div>
+			</c:if>
+			<c:if test="${!empty FIND_LIST}">
+			<c:forEach items="${FIND_LIST}" var="pro"> 
+				<div class="col-md-3 top-deal-top">
+					<div class=" top-deal">
+						<a href="single?holt=${pro.houseid }" class="mask"><img src="${pageContext.request.contextPath }/static/images/${pro.image}" class="img-responsive zoom-img" alt=""></a>
+						<div class="deal-bottom">
+							<div class="top-deal1">
+								<h5><a href="single?holt=${pro.houseid }">${pro.typename}</a></h5>
+								<p>房主：${pro.contactor}</p>
+								<p>价格：${pro.rend }$</p>
+							</div>
+							<div class="top-deal2">
+								<a href="single?holt=${pro.houseid }" class="hvr-sweep-to-right more">详情</a>
+							</div>
+						<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+		 </c:forEach>
+		 </c:if>
+		</div>	
+	
+		</div>	
+		</div>		
 </div>
-</div>
-<!--//contact-->
 <!--footer-->
 <%@ include file="footer.jsp" %>
 <!--//footer-->
